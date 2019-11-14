@@ -1,0 +1,11 @@
+{
+  "name": "Recommended Video Logger",
+  "version": "1.0",
+  "description": "Track what YouTube is recommending",
+  "permissions": ["storage"],
+  "background": {
+    "scripts": ["logger.js"],
+    "persistent": false
+  },
+  "manifest_version": 2
+}
