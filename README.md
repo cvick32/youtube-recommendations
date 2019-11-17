@@ -6,6 +6,17 @@ Chrome extension for mapping how a given user is recommended videos.
 - log into YouTube
 - watch videos and the extension will do the rest
 
+## How to run
+### backend
+- 1) `pip3 install flask flask-cors`
+- 2) `cd backend`
+- 3) `python3 api.py`
+### extension
+- 1) go to chrome://extensions > Load unpacked > navigate to the extension directory and select it
+- 2) go to youtube and start watching videos
+- 2.1) BUG: currently, 11/17, you have to refresh the page for it work. This is because youtube is a 
+  single page app and our content script, `logger.js`, currently fires on the first page load instead
+  of when a particular event is fired, not super sure how to fix this. 
 ## Data we're collecting
 We aren't collecting any personal data about you automatically. There are really three
 tiers of personal data you can give us. First, you can use the extension anonymously. 
@@ -56,12 +67,13 @@ Hopefully the structure will be interesting, perhaps like what's shown below.
                                                        +----------+
 ```
 
-## Checklist
+# Checklist
 - [x] Initial Proposal
 - [x] Readme
 - [x] Meeting with Prof. Mislove
 - [x] Decide on YouTube ad crawling
-- [ ] Build a test that generates correct json
-- [ ] Build backend endpoint that logs viewed json
+- [x] Build a test that generates correct json
+- [x] Build backend endpoint that logs viewed json
+- [ ] Fix refresh bug
 - [ ] Automate viewing in extension
 - [ ] Visualization for video graph
