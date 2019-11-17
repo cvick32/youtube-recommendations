@@ -1,4 +1,4 @@
-# youtube-ads
+# youtube-recommendations
 Chrome extension for mapping how a given user is recommended videos. 
 
 ## How it works
