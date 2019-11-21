@@ -1,35 +1,72 @@
-var relatedVideosMax = 5;
-
-var relatedVideos = "div#secondary > #secondary-inner > #related > ytd-watch-next-secondary-results-renderer > #items";
-var currentVideoTitle = "div#primary > #primary-inner > #info > #info-contents > ytd-video-primary-info-renderer  #container > h1 > yt-formatted-string";
-var currentChannelName = "#channel-name > #container > #text-container > yt-formatted-string > a";
-// document.querySelector("#channel-name > #container > #text-container > yt-formatted-string > a").text
-
+var relatedVideos = "div#secondary > #secondary-inner > #related > ytd-watch-next-secondary-results-renderer > #items ";
 var upNext = relatedVideos + " > ytd-compact-autoplay-renderer > div#contents > ytd-compact-video-renderer > div#dismissable > ytd-thumbnail > a#thumbnail";
 
+var currentVideoTitle = "div#primary > #primary-inner > #info > #info-contents > ytd-video-primary-info-renderer  #container > h1 > yt-formatted-string";
+var currentChannelName = "#channel-name > #container > #text-container > yt-formatted-string > a";
+
+
+var RELATEDVIDEOSMAX = 5;
 /**
  * Gets the recommended videos on a given page up to maximum, 
  * defined above
  */
-function getRecommendedVideos() {
-    console.log("RECOMMENDATIONS")
+function getRecommendedVideos(curUrl) {
+    console.log("RECOMMENDATIONS");
+
     var upNextLink = document.querySelector(upNext).href;
+    var curVideo   = document.querySelector(currentVideoTitle).text;
+    var curChannel = document.querySelector(currentChannelName).text;
+    
+    var recommendedLinks = getRecommendedLinks();
+    
+    console.log(upNextLink);
+    console.log(recommendedLinks);
+    toSend = {
+        "name": curVideo,
+        "channel": curChannel,
+        "link": curUrl,
+        "up_next_link": upNextLink,
+        "recommended": recommendedLinks
+    }
+    return toSend;
+}
+
+/**
+ * Returns an array that contains the recommended video
+ * information for the current video
+ */
+function getRecommendedLinks() {
     var recommendedLinks = [];
-    // must start from 3
-    for (video = 3; video < relatedVideosMax + 3; video++) {
+    for (video = 3; video < RELATEDVIDEOSMAX + 3; video++) {
         try {
-            recommendedLinks.push(document.querySelector(selectorForVideo(video)).href);
+            recommendedLinks.push(getRecommendedVideoStructure(video));
         } catch (err) {
             console.log(err);
         }
     }
-    console.log(upNextLink);
-    console.log(recommendedLinks);
-    toSend = {
-        "upNext": upNextLink,
-        "recommended": recommendedLinks
+    return recommendedLinks;
+}
+
+/**
+ * Returns the DOM selector for a given recommended video
+ * @param {index in recommended videos} videoIndex 
+ */
+function getRecommendedVideoStructure(videoIndex) {
+    var recVideoStruct = {
+        "title": "",
+        "channel": "",
+        "link": ""
     }
-    sendAPIRequest(toSend);
+    var recPrefix = relatedVideos + `> ytd-compact-video-renderer:nth-child(${videoIndex}) > div#dismissable`;
+    
+    var vidTitle = recPrefix + ` > div > div.metadata.style-scope.ytd-compact-video-renderer > a`; 
+    var chanName = vidTitle  + " > div > ytd-video-meta-block > #metadata > #byline-container > #channel-name > #container > #text-container > #text";
+    var vidLink  = recPrefix + ` > ytd-thumbnail > a#thumbnail`;
+
+    recVideoStruct["title"] = document.querySelector(vidTitle).text.replace(/(\r\n|\n|\r)/gm,"").trim().trim();
+    recVideoStruct["channel"] = document.querySelector(chanName).title;
+    recVideoStruct["link"] = document.querySelector(vidLink).href;
+    return recVideoStruct;
 }
 
 /**
@@ -49,13 +86,7 @@ function sendAPIRequest(jsonBody) {
     }
 }
 
-/**
- * Returns the DOM selector for a given recommended video
- * @param {index in recommended videos} videoIndex 
- */
-function selectorForVideo(videoIndex) {
-    return relatedVideos + ` > ytd-compact-video-renderer:nth-child(${videoIndex}) > div#dismissable > ytd-thumbnail > a#thumbnail`;
-}
+
 /**
  * Sleeps for `time_ms`
  * @param {timeout in milliseconds} time_ms 
@@ -66,23 +97,25 @@ function sleep(time_ms) {
 
 /**
  * Runs the recommended video scrape for `video_limit`
- * number of videos
+ * number of videos and sends the json to the backend
  * @param {int} video_limit 
  */
 async function videoScrapeLoop(video_limit) {
     var i = 0;
     var curUrl = window.location.href;
     while (i < video_limit) {
-        console.log("in loop");
         if (curUrl != window.location.href) {
-            console.log("get vids");
             curUrl = window.location.href;
-            getRecommendedVideos();
+            rec_vids_json = getRecommendedVideos(curUrl);
+
+            sendAPIRequest(rec_vids_json);
             i++;
         }
        await sleep(5000);
     }
+    console.log("Finished");
 }
 
-getRecommendedVideos();
-videoScrapeLoop(5);
+json = getRecommendedVideos();
+sendAPIRequest(json);
+videoScrapeLoop(3);
