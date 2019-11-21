@@ -74,7 +74,7 @@ Hopefully the structure will be interesting, perhaps like what's shown below.
 - [x] Decide on YouTube ad crawling
 - [x] Build a test that generates correct json
 - [x] Build backend endpoint that logs viewed json
-- [ ] Fix refresh bug
+- [x] Fix refresh bug
 - [ ] Automate viewing in extension
 - [ ] Visualization for video graph
 - [ ] Setup dedicated backend on (AWS, heroku?)
