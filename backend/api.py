@@ -11,8 +11,7 @@ videos = list()
 @cross_origin(origin='localhost',headers=['Content-Type','Authorization'])
 def receive_recommendations():
   req_data = request.get_json()
-  next_vid = req_data["upNext"]
-  videos.append(next_vid)
+  videos.append(req_data)
   record_vids()
   return json.dumps({"success": True}), 201
 
@@ -25,13 +24,19 @@ if __name__ == '__main__':
   app.run(debug=True, port=8000)
 
 """
-Video:
-{
-    "video_link": 
-    "title": 
-    "channel": 
-    "category":
-    "recs": [Video]
-}
+toSend = {
+        "name": curVideo,
+        "channel": curChannel,
+        "link": curUrl,
+        "up_next_link": upNextLink,
+        "recommended": [recVideoStruct]
+    }
 """
 
+"""
+recVideoStruct = {
+        "title": "",
+        "channel": "",
+        "link": ""
+    }
+"""
