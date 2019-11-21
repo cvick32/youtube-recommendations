@@ -77,3 +77,4 @@ Hopefully the structure will be interesting, perhaps like what's shown below.
 - [ ] Fix refresh bug
 - [ ] Automate viewing in extension
 - [ ] Visualization for video graph
+- [ ] Setup dedicated backend on (AWS, heroku?)
