@@ -9,7 +9,7 @@ videos = list()
 
 @app.route('/recs', methods=['POST'])
 @cross_origin(origin='localhost',headers=['Content-Type','Authorization'])
-def get_companies():
+def receive_recommendations():
   req_data = request.get_json()
   next_vid = req_data["upNext"]
   videos.append(next_vid)
@@ -24,4 +24,14 @@ def record_vids():
 if __name__ == '__main__':
   app.run(debug=True, port=8000)
 
+"""
+Video:
+{
+    "video_link": 
+    "title": 
+    "channel": 
+    "category":
+    "recs": [Video]
+}
+"""
 
