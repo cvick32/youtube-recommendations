@@ -20,7 +20,7 @@ def receive_recommendations():
 @app.route('/full_graph')
 def full_graph():
     js_path = "./js/full_graph.js"
-    return render_template('graph.html', context=js_path)
+    return render_template('base.html', context=js_path)
 
 def record_vids():
   video_log = open("data/videos.json", "w+")
