@@ -81,6 +81,7 @@ Hopefully the structure will be interesting, perhaps like what's shown below.
 - [x] Build a test that generates correct json
 - [x] Build backend endpoint that logs viewed json
 - [x] Fix refresh bug
-- [ ] Automate viewing in extension
 - [x] Visualization for video graph
+- [ ] Read flat videos.json file so we can append to it
+- [ ] Automate viewing in extension
 - [ ] Setup dedicated backend on (AWS, heroku?)

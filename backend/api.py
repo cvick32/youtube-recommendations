@@ -12,7 +12,9 @@ videos = list()
 def receive_recommendations():
   req_data = request.get_json()
   for vid in req_data["recommended"]:
-      vid["title"] = " ".join(vid["title"].split())
+    l = vid["title"].split("            ")
+    l = [x.split() for x in l if x != '']
+    vid["title"] = l[0]
   videos.append(req_data)
   record_vids()
   return json.dumps({"success": True}), 201
@@ -23,7 +25,7 @@ def full_graph():
     return render_template('base.html', context=js_path)
 
 def record_vids():
-  video_log = open("data/videos.json", "w+")
+  video_log = open("static/videos.json", "w+")
   video_log.write(json.dumps(videos) + "\n")
   video_log.close()
 
