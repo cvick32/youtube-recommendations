@@ -8,14 +8,14 @@ Chrome extension for mapping how a given user is recommended videos.
 
 ## How to run
 ### backend
-- 1) `pip3 install flask flask-cors`
-- 2) `cd backend`
-- 3) `python3 api.py`
+- `pip3 install flask flask-cors`
+- `cd backend`
+- `python3 api.py`
 
 ### visualization
-- 1) follow backend steps above
-- 1.1) optionally change the data in backend/static/videos.json to whatever data that you have collected
-- 2) navigate to `127.0.0.1/full_graph` in your browser
+- follow backend steps above
+  - *optionally* change the data in backend/static/videos.json to whatever data that you have collected
+- navigate to `127.0.0.1/full_graph` in your browser
 
 ### extension
 - 1) go to chrome://extensions > Load unpacked > navigate to the extension directory and select it
