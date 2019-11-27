@@ -4,7 +4,7 @@ var upNext = relatedVideos + " > ytd-compact-autoplay-renderer > div#contents > 
 var currentVideoTitle = "div#primary > #primary-inner > #info > #info-contents > ytd-video-primary-info-renderer  #container > h1 > yt-formatted-string";
 var currentChannelName = "#channel-name > #container > #text-container > yt-formatted-string > a";
 
-var i = 0;
+var seen_videos = 0;
 var RELATEDVIDEOSMAX = 5;
 /**
  * Gets the recommended videos on a given page up to maximum, 
@@ -14,8 +14,8 @@ function getRecommendedVideos(curUrl) {
     console.log("RECOMMENDATIONS");
 
     this.upNextLink = document.querySelector(upNext).href;
-    var curVideo   = document.querySelector(currentVideoTitle).text;
-    var curChannel = document.querySelector(currentChannelName).text;
+    var curVideo    = document.querySelector(currentVideoTitle).text;
+    var curChannel  = document.querySelector(currentChannelName).text;
     
     var recommendedLinks = getRecommendedLinks();
     
@@ -63,7 +63,7 @@ function getRecommendedVideoStructure(videoIndex) {
     var chanName = vidTitle  + " > div > ytd-video-meta-block > #metadata > #byline-container > #channel-name > #container > #text-container > #text";
     var vidLink  = recPrefix + ` > ytd-thumbnail > a#thumbnail`;
 
-    recVideoStruct["title"] = document.querySelector(vidTitle).text.replace(/(\r\n|\n|\r)/gm,"").trim().trim();
+    recVideoStruct["title"] = document.querySelector(vidTitle).text.replace(/(\r\n|\n|\r)/gm, "").trim().trim();
     recVideoStruct["channel"] = document.querySelector(chanName).title;
     recVideoStruct["link"] = document.querySelector(vidLink).href;
     return recVideoStruct;
@@ -86,7 +86,6 @@ function sendAPIRequest(jsonBody) {
     }
 }
 
-
 /**
  * Sleeps for `time_ms`
  * @param {timeout in milliseconds} time_ms 
@@ -98,23 +97,27 @@ function sleep(time_ms) {
 /**
  * Runs the recommended video scrape for `video_limit`
  * number of videos and sends the json to the backend
- * @param {int} video_limit 
+ * @param {int}  video_limit 
+ * @param {int}  watch_time - how long to wait before watching next video
+ * @param {bool} autoplay - toggle autoplay 
  */
-async function videoScrapeLoop(video_limit) {
+async function videoScrapeLoop(video_limit, watch_time, autoplay) {
     var curUrl = window.location.href;
-    while (this.i < video_limit) {
+    while (this.seen_videos < video_limit) {
         if (curUrl != window.location.href) {
             curUrl = window.location.href;
             rec_vids_json = getRecommendedVideos(curUrl);
             sendAPIRequest(rec_vids_json);
-            this.i++;
+            this.seen_videos++;
         }
-       await sleep(5000);
-       document.querySelector(upNext).click();
+       await sleep(watch_time);
+       if (autoplay) {
+        document.querySelector(upNext).click();
+       }
     }
     console.log("Finished");
 }
 
 json = getRecommendedVideos();
 sendAPIRequest(json);
-videoScrapeLoop(3);
+videoScrapeLoop(3, 5000, true);
