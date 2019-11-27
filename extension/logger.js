@@ -3,7 +3,7 @@ var upNext = relatedVideos + " > ytd-compact-autoplay-renderer > div#contents > 
 
 var currentVideoTitle = "div#primary > #primary-inner > #info > #info-contents > ytd-video-primary-info-renderer  #container > h1 > yt-formatted-string";
 var currentChannelName = "#channel-name > #container > #text-container > yt-formatted-string > a";
-var i = 0;
+
 
 var RELATEDVIDEOSMAX = 5;
 /**
@@ -101,9 +101,9 @@ function sleep(time_ms) {
  * @param {int} video_limit 
  */
 async function videoScrapeLoop(video_limit) {
-    
+    var i = 0;
     var curUrl = window.location.href;
-    while (this.i < video_limit) {
+    while (i < video_limit) {
         if (curUrl != window.location.href) {
             curUrl = window.location.href;
             rec_vids_json = getRecommendedVideos(curUrl);
