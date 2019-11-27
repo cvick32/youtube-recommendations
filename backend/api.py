@@ -5,6 +5,8 @@ app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:port"}})
 
+DATA_FILE = "static/videos.json"
+
 videos = list()
 
 @app.route('/recs', methods=['POST'])
@@ -25,12 +27,14 @@ def full_graph():
     return render_template('base.html', context=js_path)
 
 def record_vids():
-  video_log = open("static/videos.json", "w+")
+  video_log = open(DATA_FILE, "w+")
   video_log.write(json.dumps(videos) + "\n")
   video_log.close()
 
 
-
 if __name__ == '__main__':
-  app.run(debug=True, port=8000)
+    video_file = open(DATA_FILE, "r")
+    videos = json.load(video_file)
+    video_file.close()
+    app.run(debug=True, port=8000)
 
