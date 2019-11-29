@@ -1,5 +1,5 @@
 // set data file
-video_data = "/static/videos.json";
+video_data = "/static/blank_user_videos.json";
 
 let videos;
 let links = [];
@@ -159,7 +159,7 @@ function setSVG() {
         .style('marker', (d) => 'url(#arrow)')
         .merge(path);
 
-    circle = circle.data(videos, (d) => d.channel);
+    circle = circle.data(videos, (d) => d.link);
 
     circle.exit().remove();
 
@@ -168,13 +168,18 @@ function setSVG() {
     g.append('svg:circle')
         .attr('class', 'node')
         .attr('r', circleSize)
-        .style('stroke', d3.rgb(colors(0)).darker().toString());
+        .style('stroke', d3.rgb(colors(0)).darker().toString())
+        .style('fill', "white");
 
     g.append('svg:text')
-        .attr('x', 0)
+        .attr('x', 10)
         .attr('y', 4)
-        .attr('class', 'channel')
-        .text((d) => d.channel);
+        .attr('class', 'title')
+        .text((d) => d.title);
+    
+    g.append('svg:a')
+        .attr('xlink:href', (d) => d.link)
+        .on('click')
 
     circle = g.merge(circle);
 
