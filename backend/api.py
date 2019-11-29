@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:port"}})
 
-DATA_FILE = "static/videos.json"
+DATA_FILE = "static/blank_user_videos.json"
 
 videos = list()
 
@@ -16,7 +16,7 @@ def receive_recommendations():
   for vid in req_data["recommended"]:
     l = vid["title"].split("            ")
     l = [x.split() for x in l if x != '']
-    vid["title"] = l[0]
+    vid["title"] = " ".join(l[0])
   videos.append(req_data)
   record_vids()
   return json.dumps({"success": True}), 201
