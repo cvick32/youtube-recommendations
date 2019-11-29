@@ -94,5 +94,226 @@
             }
         ],
         "up_next_link": "https://www.youtube.com/watch?v=zc7MImrsCbo"
+    },
+    {
+        "channel": "Two Minute Papers",
+        "recommended": [],
+        "up_next_link": "https://www.youtube.com/watch?v=n6nF9WfpPrA"
+    },
+    {
+        "channel": "It's Bloody Science!",
+        "link": "https://www.youtube.com/watch?v=n6nF9WfpPrA",
+        "recommended": [
+            {
+                "channel": "Olivier BOSSARD",
+                "link": "https://www.youtube.com/watch?v=dgcofJneJWM",
+                "title": [
+                    "The",
+                    "Big",
+                    "Short",
+                    "16",
+                    "-",
+                    "Mark",
+                    "Baum",
+                    "(Steve",
+                    "Eisman)",
+                    "Meets",
+                    "a",
+                    "CDO",
+                    "Manager"
+                ]
+            },
+            {
+                "channel": "Scary Pockets",
+                "link": "https://www.youtube.com/watch?v=I8w6hFJdxm8",
+                "title": [
+                    "Skinny",
+                    "Love",
+                    "|",
+                    "Bon",
+                    "Iver",
+                    "|",
+                    "funk",
+                    "cover",
+                    "ft.",
+                    "Antwaun",
+                    "Stanley"
+                ]
+            },
+            {
+                "channel": "Numberphile",
+                "link": "https://www.youtube.com/watch?v=V4V2bpZlqx8",
+                "title": [
+                    "Flaw",
+                    "in",
+                    "the",
+                    "Enigma",
+                    "Code",
+                    "-",
+                    "Numberphile"
+                ]
+            },
+            {
+                "channel": "ColdFusion",
+                "link": "https://www.youtube.com/watch?v=XbDmxEOj9OY",
+                "title": [
+                    "Elon",
+                    "Musk\u2019s",
+                    "A.I.",
+                    "Destroys",
+                    "Champion",
+                    "Gamer!"
+                ]
+            },
+            {
+                "channel": "videogamedunkey",
+                "link": "https://www.youtube.com/watch?v=OeHjN4oWVfk",
+                "title": [
+                    "Microsoft",
+                    "Sucks"
+                ]
+            }
+        ],
+        "up_next_link": "https://www.youtube.com/watch?v=0ZGbIKd0XrM"
+    },
+    {
+        "channel": "Primer",
+        "link": "https://www.youtube.com/watch?v=0ZGbIKd0XrM",
+        "recommended": [
+            {
+                "channel": "CGP Grey",
+                "link": "https://www.youtube.com/watch?v=R9OHn5ZF4Uo",
+                "title": [
+                    "How",
+                    "Machines",
+                    "Learn"
+                ]
+            },
+            {
+                "channel": "Numberphile",
+                "link": "https://www.youtube.com/watch?v=V4V2bpZlqx8",
+                "title": [
+                    "Flaw",
+                    "in",
+                    "the",
+                    "Enigma",
+                    "Code",
+                    "-",
+                    "Numberphile"
+                ]
+            },
+            {
+                "channel": "TierZoo",
+                "link": "https://www.youtube.com/watch?v=wztl2s0x0Eo",
+                "title": [
+                    "Top",
+                    "5",
+                    "Animal",
+                    "Team",
+                    "Combos"
+                ]
+            },
+            {
+                "channel": "Olivier BOSSARD",
+                "link": "https://www.youtube.com/watch?v=AUoy8YkBhwA",
+                "title": [
+                    "The",
+                    "Big",
+                    "Short",
+                    "18",
+                    "-",
+                    "Mark",
+                    "Baum:",
+                    "\"I",
+                    "Say",
+                    "When",
+                    "We",
+                    "Sell!\""
+                ]
+            },
+            {
+                "channel": "TED-Ed",
+                "link": "https://www.youtube.com/watch?v=Uj3_KqkI9Zo",
+                "title": [
+                    "The",
+                    "Infinite",
+                    "Hotel",
+                    "Paradox",
+                    "-",
+                    "Jeff",
+                    "Dekofsky"
+                ]
+            }
+        ],
+        "up_next_link": "https://www.youtube.com/watch?v=lFEgohhfxOA"
+    },
+    {
+        "channel": "Primer",
+        "link": "https://www.youtube.com/watch?v=lFEgohhfxOA",
+        "recommended": [
+            {
+                "channel": "KempQ",
+                "link": "https://www.youtube.com/watch?v=V5_sCa1Sz24",
+                "title": [
+                    "I",
+                    "Anti-Scammed",
+                    "the",
+                    "Duel",
+                    "Arena",
+                    "Scammers"
+                ]
+            },
+            {
+                "channel": "Numberphile",
+                "link": "https://www.youtube.com/watch?v=V4V2bpZlqx8",
+                "title": [
+                    "Flaw",
+                    "in",
+                    "the",
+                    "Enigma",
+                    "Code",
+                    "-",
+                    "Numberphile"
+                ]
+            },
+            {
+                "channel": "Scary Pockets",
+                "link": "https://www.youtube.com/watch?v=fiShsfvbFUA",
+                "title": [
+                    "MMMBop",
+                    "|",
+                    "Hanson",
+                    "|",
+                    "funk",
+                    "cover",
+                    "ft.",
+                    "Lucy",
+                    "Schwartz",
+                    "&",
+                    "Adam",
+                    "Neely"
+                ]
+            },
+            {
+                "channel": "Olivier BOSSARD",
+                "link": "https://www.youtube.com/watch?v=dgcofJneJWM",
+                "title": [
+                    "The",
+                    "Big",
+                    "Short",
+                    "16",
+                    "-",
+                    "Mark",
+                    "Baum",
+                    "(Steve",
+                    "Eisman)",
+                    "Meets",
+                    "a",
+                    "CDO",
+                    "Manager"
+                ]
+            }
+        ],
+        "up_next_link": "https://www.youtube.com/watch?v=YNMkADpvO4w"
     }
 ]
