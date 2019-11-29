@@ -55,7 +55,7 @@ function zoomed() {
  */
 function createD3Force() {
     return d3.forceSimulation()
-        .force('link', d3.forceLink().id((d) => d.channel).distance(150))
+        .force('link', d3.forceLink().id((d) => d.link).distance(150))
         .force('charge', d3.forceManyBody().strength(forceStrength))
         .force('x', d3.forceX(width / 2))
         .force('y', d3.forceY(height / 2))
