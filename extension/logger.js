@@ -120,4 +120,4 @@ async function videoScrapeLoop(video_limit, watch_time, autoplay) {
 
 json = getRecommendedVideos();
 sendAPIRequest(json);
-videoScrapeLoop(3, 5000, true);
+videoScrapeLoop(25, 10000, true);
