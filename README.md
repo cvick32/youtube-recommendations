@@ -76,7 +76,10 @@ Hopefully the structure will be interesting, perhaps like what's shown below.
 # Starting Videos
 
 fox: https://www.youtube.com/watch?v=h6x6L_ArNW8
+
 msnbc: https://www.youtube.com/watch?v=IZiKUNAwOkQ
+
+contrapoints: https://www.youtube.com/watch?v=jD-PbF3ywGo
 
 # Checklist
 - [x] Initial Proposal
