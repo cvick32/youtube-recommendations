@@ -81,6 +81,8 @@ msnbc: https://www.youtube.com/watch?v=IZiKUNAwOkQ
 
 contrapoints: https://www.youtube.com/watch?v=jD-PbF3ywGo
 
+daily wire: https://www.youtube.com/watch?v=aguipB73VWc
+
 # Checklist
 - [x] Initial Proposal
 - [x] Readme
