@@ -8,5 +8,6 @@
       <div id="video-graph"></div>
   </body>
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="{{ url_for('static', filename='js/full_graph.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/video_visualization.js') }}"></script>
+  <script>dataLoadAndSetup("{{ json_path }}")</script>
 </html>
