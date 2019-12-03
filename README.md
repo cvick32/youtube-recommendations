@@ -83,6 +83,11 @@ contrapoints: https://www.youtube.com/watch?v=jD-PbF3ywGo
 
 daily wire: https://www.youtube.com/watch?v=aguipB73VWc
 
+# Training
+## Left
+Watched two left-leaning playlists at 2x speed with no subscriptions. Ran for 25 videos on seeds.
+## Right
+Watched one right-leaning playlist at 1x speed with 5 right-leaning subscriptions. Ran for 25 videos on seeds.
 # Checklist
 - [x] Initial Proposal
 - [x] Readme
@@ -95,4 +100,7 @@ daily wire: https://www.youtube.com/watch?v=aguipB73VWc
 - [x] Read flat videos.json file so we can append to it
 - [x] Automate viewing in extension
 - [ ] Get title from the current video
+- [ ] Dynamically show different JSON files
 - [ ] Setup dedicated backend on (AWS, heroku?)
+- [ ] Fix floating nodes
+- [x] Make nodes clickable
