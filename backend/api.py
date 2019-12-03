@@ -1,11 +1,11 @@
+import sys
+
 from flask import Flask, json, request, render_template
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:port"}})
-
-DATA_FILE = "static/blank_user_videos.json"
 
 videos = list()
 
@@ -21,10 +21,15 @@ def receive_recommendations():
   record_vids()
   return json.dumps({"success": True}), 201
 
-@app.route('/full_graph')
-def full_graph():
-    js_path = "./js/full_graph.js"
-    return render_template('base.html', context=js_path)
+@app.route('/')
+def render_graph():
+    if request.args.get('seed') and request.args.get('bent'):
+        vid_seed = request.args.get('seed')
+        vid_bent = request.args.get('bent')
+        json_path = f"/static{vid_bent}_{vid_seed}"
+    else:
+        json_path = "/static/videos.json"
+    return render_template('base.html', json_path=json_path)
 
 def record_vids():
   video_log = open(DATA_FILE, "w+")
@@ -33,8 +38,17 @@ def record_vids():
 
 
 if __name__ == '__main__':
-    video_file = open(DATA_FILE, "r")
-    videos = json.load(video_file)
+    if sys.argv[1] and sys.argv[2]:
+        bent = sys.argv[1]
+        seed = sys.argv[2]
+        DATA_FILE = f"static/{bent}_{seed}_videos.json"
+    else: 
+        DATA_FILE = "static/blank_videos.json"
+    print(DATA_FILE)
+    video_file = open(DATA_FILE, "w+")
+    try:
+        videos = json.load(video_file)
+    except:
+        videos = list()
     video_file.close()
     app.run(debug=True, port=8000)
-
