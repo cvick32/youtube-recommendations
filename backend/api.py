@@ -26,7 +26,7 @@ def render_graph():
     if request.args.get('seed') and request.args.get('bent'):
         vid_seed = request.args.get('seed')
         vid_bent = request.args.get('bent')
-        json_path = f"/static{vid_bent}_{vid_seed}"
+        json_path = f"/static/{vid_bent}_{vid_seed}"
     else:
         json_path = "/static/videos.json"
     return render_template('base.html', json_path=json_path)
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     if sys.argv[1] and sys.argv[2]:
         bent = sys.argv[1]
         seed = sys.argv[2]
-        DATA_FILE = f"static/{bent}_{seed}_videos.json"
+        DATA_FILE = f"static/{bent}_{seed}.json"
     else: 
         DATA_FILE = "static/blank_videos.json"
     print(DATA_FILE)
