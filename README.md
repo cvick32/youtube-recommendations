@@ -15,8 +15,11 @@ Chrome extension for mapping how a given user is recommended videos.
 ### visualization
 - follow backend steps above
   - *optionally* change the data in backend/static/videos.json to whatever data that you have collected
-- navigate to `127.0.0.1/full_graph` in your browser
-
+- navigate to `127.0.0.1/?bent=[one of bent]&seed=[one of seed]` in your browser
+  - [bent] = ["righty", "lefty"]
+  - [seed] = ["fox", "contra", "shap", "nbc"]
+  - ex. `127.0.0.1/?bent=righty&seed=nbc`
+    - this will show the graph for the account trained with right leaning videos, starting from an msnbc video
 ### extension
 - 1) go to chrome://extensions > Load unpacked > navigate to the extension directory and select it
 - 2) go to youtube and start watching videos
