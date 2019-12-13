@@ -75,7 +75,6 @@ Hopefully the structure will be interesting, perhaps like what's shown below.
                                                  +---->+  VIDEO 7 |
                                                        +----------+
 ```
-
 # Starting Videos
 
 fox: https://www.youtube.com/watch?v=h6x6L_ArNW8
@@ -91,6 +90,13 @@ daily wire: https://www.youtube.com/watch?v=aguipB73VWc
 Watched two left-leaning playlists at 2x speed with no subscriptions. Ran for 25 videos on seeds.
 ## Right
 Watched one right-leaning playlist at 1x speed with 5 right-leaning subscriptions. Ran for 25 videos on seeds.
+
+
+# Results
+The Lefty account seeded from the Fox News video above.![lefty_fox](images/lefty_fox.png) 
+
+The Righty account seeded from the Fox News video above.![righty_fox](images/righty_fox.png) 
+
 # Checklist
 - [x] Initial Proposal
 - [x] Readme
